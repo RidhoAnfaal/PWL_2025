@@ -23,16 +23,17 @@ use App\Http\Controllers\PhotoController;
 //     return view('welcome');
 // });
 
+// ROUTING
 //Basic Routing
 // Route::get('/hello', function () {
 //     return 'Hello, World!';
 // });
 
-Route::get('/hello', [WelcomeController::class,'hello']);
+// Route::get('/hello', [WelcomeController::class,'hello']);
 
-Route::get('/world', function () {
-    return  'World';
-});
+// Route::get('/world', function () {
+//     return  'World';
+// });
 
 // Route::get('/', function () {
 //     return 'Selamat Datang';
@@ -43,31 +44,31 @@ Route::get('/world', function () {
 // });
 
 // Route Parameters
-Route::get('/user/{name}', function ($name) {
-    return 'Nama saya '.$name;
-});
-
-Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
-    return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
-});
-
-// Route::get('/articles/{id}', function ($articleId) {
-//     return 'Halaman Artikel dengan ID-'.$articleId;
+// Route::get('/user/{name}', function ($name) {
+//     return 'Nama saya '.$name;
 // });
 
-// Optional Parameters
-Route::get('/user/{name?}', function ($name=null) {
-    return 'Nama saya '.$name;
-});
+// Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+//     return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
+// });
 
-Route::get('/user/{name?}', function ($name='John') {
-    return 'Nama saya '.$name;
-});
+// // Route::get('/articles/{id}', function ($articleId) {
+// //     return 'Halaman Artikel dengan ID-'.$articleId;
+// // });
 
-// Route Name
-Route::get('/user/profile', function () {
-    //
-})->name('profile');
+// // Optional Parameters
+// Route::get('/user/{name?}', function ($name=null) {
+//     return 'Nama saya '.$name;
+// });
+
+// Route::get('/user/{name?}', function ($name='John') {
+//     return 'Nama saya '.$name;
+// });
+
+// // Route Name
+// Route::get('/user/profile', function () {
+//     //
+// })->name('profile');
 
 // Route Group & Route Prefixes
 // Route Group 
@@ -101,30 +102,37 @@ Route::get('/user/profile', function () {
 // });
 
 // Redirect Routes
-Route::redirect('/here', '/there');
+// Route::redirect('/here', '/there');
 
-// View Routes
-Route::view('/welcome', 'welcome');
-Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
+// // View Routes
+// Route::view('/welcome', 'welcome');
+// Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
 
-//control1
-Route::get('/', [PageController::class, 'index']);
-Route::get('/about', [PageController::class, 'about']);
-Route::get('/articles/{id}', [PageController::class, 'articles']);
-//control2
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'about']);
-Route::get('/articles/{id}', [ArticleController::class, 'articles']);
-//control3
-Route::resource('photos', PhotoController::class);
-Route::resource('photos', PhotoController::class)->only([
-    'index', 'show'
-]);
-Route::resource('photos', PhotoController::class)->except([
-    'create', 'store', 'update', 'destroy'
-]);
+// // CONTROLLER
+// //control1
+// Route::get('/', [PageController::class, 'index']);
+// Route::get('/about', [PageController::class, 'about']);
+// Route::get('/articles/{id}', [PageController::class, 'articles']);
+// //control2
+// Route::get('/', [HomeController::class, 'index']);
+// Route::get('/about', [AboutController::class, 'about']);
+// Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+// //control3
+// Route::resource('photos', PhotoController::class);
+// Route::resource('photos', PhotoController::class)->only([
+//     'index', 'show'
+// ]);
+// Route::resource('photos', PhotoController::class)->except([
+//     'create', 'store', 'update', 'destroy'
+// ]);
 
-//view 
-Route::get('/greeting', function () {
-    return view('hello', ['name' => 'Ridho Anfaal']);
-});
+// VIEW
+// Route::get('/greeting', function () {
+//     return view('hello', ['name' => 'Andi']);
+// });
+
+// Route::get('/greeting', function () {
+//     return view('blog.hello', ['name' => 'Ridho Anfaal']);
+// });
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
