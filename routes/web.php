@@ -124,7 +124,7 @@ Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
 ]);
 
-//view
+//view 
 Route::get('/greeting', function () {
     return view('hello', ['name' => 'Ridho Anfaal']);
 });
